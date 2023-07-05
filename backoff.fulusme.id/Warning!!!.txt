@@ -1,0 +1,15 @@
+----------------------------------------------------------
+cleare DB
+----------------------------------------------------------
+history_project -> history_project_document
+jurnal -> jurnal_detail
+scoring
+scr_status
+tbl_trans_kas
+trx_jatuh_tempo -> trx_pendanaan -> trx_project -> trx_project_retail -> trx_hutang_payment
+virtual
+sales_account
+----------------------------------------------------------
+Project model
+function getTrackPendanaan()
+function returPendanaan()

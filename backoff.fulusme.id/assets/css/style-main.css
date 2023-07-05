@@ -1,0 +1,22 @@
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.form-group.has-warning .form-control {
+background: #fff none repeat scroll 0 0;
+border-color: #cfcfcf;
+box-shadow: none;
+color: #d86b00;
+font-size: 1em;
+}
+
+.form-groupb.has-warningb .form-control {
+background: #fff none repeat scroll 0 0;
+border-color: #F6981F;
+box-shadow: none;
+color: #000;
+font-size: 1.2em;
+height: 1.8em;
+font-weight: bolder;
+}
