@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/fulusme/public_html/dev_fulusme
+    - /bin/cp -R * $DEPLOYPATH
