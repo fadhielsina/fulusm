@@ -806,7 +806,10 @@ class User extends CI_Controller
 			$this->db->where('project.end_ts >', time());
 			$this->db->where('project.status', 1);
 			$this->db->where('project.version', 1);
-			$this->db->select('project.*,  COALESCE(sum(pendanaan.nominal), 0) as nominal, COALESCE(sum(pendanaan.nominal)/project.harga_perlot, 0) as jumlah_pendanaan, project_document.prospektus as prospektus');
+			$this->db->where('(pendanaan.status = 1 or pendanaan.status = 5)');
+			$this->db->select('project.*,  COALESCE(sum(pendanaan.nominal), 0) as nominal, 
+			COALESCE(sum(pendanaan.nominal)/project.harga_perlot, 0) as jumlah_pendanaan, 
+			project_document.prospektus as prospektus');
 			$query = $this->db->get('project')->result_array();
 
 			// $this->db->join('project_document', 'project_document.project_id = project.id', 'left');
@@ -1764,23 +1767,23 @@ class User extends CI_Controller
 
 	public function testlagi()
 	{
-	     // persiapkan curl
-        $ch = curl_init(); 
-    
-        // set url 
-        curl_setopt($ch, CURLOPT_URL, "http://178.128.124.100/api_mobile/api/example/cekfulusme");
-    
-        // return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-    
-        // $output contains the output string 
-        $output = curl_exec($ch); 
-    
-        // tutup curl 
-        curl_close($ch);      
-    
-        // menampilkan hasil curl
-        echo $output;
+		// persiapkan curl
+		$ch = curl_init();
+
+		// set url 
+		curl_setopt($ch, CURLOPT_URL, "http://178.128.124.100/api_mobile/api/example/cekfulusme");
+
+		// return the transfer as a string 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+		// $output contains the output string 
+		$output = curl_exec($ch);
+
+		// tutup curl 
+		curl_close($ch);
+
+		// menampilkan hasil curl
+		echo $output;
 	}
 
 	public function formDanaiRetail()
