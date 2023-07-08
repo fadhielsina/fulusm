@@ -800,7 +800,7 @@ class User extends CI_Controller
 			// $data['project'] = $project;
 
 			$this->db->join('project_document', 'project_document.project_id = project.id', 'left');
-			$this->db->join('pendanaan', 'pendanaan.project_id = project.id and pendanaan.status != 2', 'left');
+			$this->db->join('pendanaan', 'pendanaan.project_id = project.id and pendanaan.status IN (1,5)', 'left');
 			$this->db->order_by('project.create_ts', 'DESC');
 			$this->db->group_by("project.id");
 			$this->db->where('project.end_ts >', time());
