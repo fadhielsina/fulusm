@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -75,44 +75,44 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
- 	'hostname' => 'localhost',
- 	'username' => 'fulusme_user',
- 	'password' => 'CCWBvH6R@S4$',
- 	'database' => 'fulusme_prod',
- 	'dbdriver' => 'mysqli',
- 	'dbprefix' => '',
- 	'pconnect' => FALSE,
- 	'db_debug' => (ENVIRONMENT !== 'production'),
- 	'cache_on' => FALSE,
+	'hostname' => 'localhost',
+	'username' => 'fulusme_user',
+	'password' => 'CCWBvH6R@S4$',
+	'database' => 'fulusme_dev_prod',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
 	'cachedir' => '',
- 	'char_set' => 'utf8',
- 	'dbcollat' => 'utf8_general_ci',
- 	'swap_pre' => '',
- 	'encrypt' => FALSE,
- 	'compress' => FALSE,
- 	'stricton' => FALSE,
- 	'failover' => array(),
- 	'save_queries' => TRUE
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
 );
 
 $db['back'] = array(
 	'dsn'	=> '',
- 	'hostname' => 'localhost',
- 	'username' => 'fulusme_user',
- 	'password' => 'CCWBvH6R@S4$',
- 	'database' => 'fulusme_back',
- 	'dbdriver' => 'mysqli',
- 	'dbprefix' => '',
- 	'pconnect' => FALSE,
- 	'db_debug' => (ENVIRONMENT !== 'production'),
- 	'cache_on' => FALSE,
+	'hostname' => 'localhost',
+	'username' => 'fulusme_user',
+	'password' => 'CCWBvH6R@S4$',
+	'database' => 'fulusme_dev_back',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
 	'cachedir' => '',
- 	'char_set' => 'utf8',
- 	'dbcollat' => 'utf8_general_ci',
- 	'swap_pre' => '',
- 	'encrypt' => FALSE,
- 	'compress' => FALSE,
- 	'stricton' => FALSE,
- 	'failover' => array(),
- 	'save_queries' => TRUE
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
 );
