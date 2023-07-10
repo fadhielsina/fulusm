@@ -278,7 +278,8 @@ function ribuan($angka)
     
     <?php } ?>
     
-            <p>ID Proyek : <span style=" color: #fd7e14;"><?php echo $obj["id"] ?></span></p>
+            <p style=" color: black;"> Efek Bersifat Utang </p>
+              <p>ID Proyek : <span style=" color: #fd7e14;"><?php echo $obj["id"] ?></span></p>
 
 
 
@@ -335,37 +336,22 @@ function ribuan($angka)
 
         <div class="kt-widget__label-success">
           <span class="btn btn-label-brand btn-sm btn-bold btn-upper btn-info" style="margin-bottom:10px;">
-            <? if ($obj["prospektus"]) { ?>
-
-              <a href="<?= base_url('assets/file_user/prospektus/
-') ?><?= $obj["prospektus"] ?>" target="_blank"> <span style=" color: #040538;"> Proposal Bisnis </span></a>
-
-
-            <? } else { ?>
-
-              <a href="#" onClick="alert('Project ini tidak memiliki prospektus')"> Proposal Bisnis </a>
-
-            <? } ?><br />
-
-
-
-
-
-
-
-
+            <?php if ($query_pendanaan->jumlah_pendanaan != 1) : ?>
+              <? if ($obj["prospektus"]) { ?>
+                <a href="<?= base_url('assets/file_user/prospektus/') ?><?= $obj["prospektus"] ?>" target="_blank"> <span style=" color: #040538;"> Proposal Bisnis </span></a>
+              <? } else { ?>
+                <a href="#" onClick="alert('Project ini tidak memiliki prospektus')"> Proposal Bisnis </a>
+              <? } ?><br />
           </span>
+        <?php endif; ?>
 
 
-          <?php if ($query_pendanaan->jumlah_pendanaan == 1) { ?>
-            <button type="button" style="display: inline;background-color:#fd7e14;border-radius: 15px;" class="btn btn-brand btn-sm btn-upper" onClick="alert('Project ini sudah terdanai, tunggu project lainnya')">Beli</button>
-
-          <?php } else { ?>
-
-
-            <a href="<?= base_url('auth') ?>">
-              <button type="button" style="display: inline;background-color:#fd7e14;color:#fff;border-radius: 15px;" class="btn btn-block btn-sm ">Beli</button></a>
-          <?php } ?>
+        <?php if ($query_pendanaan->jumlah_pendanaan == 1) { ?>
+          <!-- <button type="button" style="display: inline;background-color:#fd7e14;border-radius: 15px;" class="btn btn-brand btn-sm btn-upper" onClick="alert('Project ini sudah terdanai, tunggu project lainnya')">Beli</button> -->
+        <?php } else { ?>
+          <a href="<?= base_url('auth') ?>">
+            <button type="button" style="display: inline;background-color:#fd7e14;color:#fff;border-radius: 15px;" class="btn btn-block btn-sm ">Beli</button></a>
+        <?php } ?>
         </div>
 
 
