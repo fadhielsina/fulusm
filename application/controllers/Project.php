@@ -161,7 +161,7 @@ class Project extends CI_Controller
 				if ($upload_image) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '6048';
 					$new_image = '';
 					$this->load->library('upload', $config);
 					$this->upload->initialize($config);
@@ -182,7 +182,7 @@ class Project extends CI_Controller
 				if ($upload_image2) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '6048';
 					$new_image = '';
 					$this->load->library('upload', $config);
 					$this->upload->initialize($config);
@@ -203,7 +203,7 @@ class Project extends CI_Controller
 				if ($upload_image3) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '6048';
 					$new_image = '';
 					$this->load->library('upload', $config);
 					$this->upload->initialize($config);
@@ -224,7 +224,7 @@ class Project extends CI_Controller
 				if ($upload_image8) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '6048';
 					$new_image = '';
 					$this->load->library('upload', $config);
 					$this->upload->initialize($config);
@@ -247,7 +247,7 @@ class Project extends CI_Controller
 			if ($upload_image4) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '6048';
 				$new_image = '';
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
@@ -267,7 +267,7 @@ class Project extends CI_Controller
 			if ($upload_image5) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '6048';
 				$new_image = '';
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
@@ -287,7 +287,7 @@ class Project extends CI_Controller
 			if ($upload_image6) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '6048';
 				$new_image = '';
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
@@ -308,7 +308,7 @@ class Project extends CI_Controller
 			if ($upload_image7) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '6048';
 				$new_image = '';
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
@@ -539,7 +539,7 @@ class Project extends CI_Controller
 			if ($upload_image) {
 				$config['upload_path']   = base_url() . '/assets/file_user/spk/';
 				$config['allowed_types'] = 'pdf';
-				$config['max_size']      = '5048';
+				$config['max_size']      = '6048';
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('spk')) {
 					$spk = $this->upload->data('spk');
