@@ -313,7 +313,7 @@
                                   text-overflow: ellipsis;
                                   height: 33px;
                                   font-size: .8rem;" class="custom-file-label img-label" for="spk">Unggah dokumen SPK</label>
-                  <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 2mb</small>
+                  <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 6mb</small>
                   <?= form_error('spk', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
               </div>
@@ -333,7 +333,7 @@
                                 text-overflow: ellipsis;
                                 height: 33px;
                                 font-size: .8rem;" class="custom-file-label img-label" for="loa">Unggah dokumen LOA</label>
-                  <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 2mb</small>
+                  <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 6mb</small>
                   <?= form_error('loa', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
               </div>
@@ -353,7 +353,7 @@
                                 text-overflow: ellipsis;
                                 height: 33px;
                                 font-size: .8rem;" class="custom-file-label img-label" for="kontrak">Unggah dokumen kontrak</label>
-                  <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 2mb</small>
+                  <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 6mb</small>
                   <?= form_error('kontrak', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
               </div>
@@ -377,7 +377,7 @@
                                 text-overflow: ellipsis;
                                 height: 33px;
                                 font-size: .8rem;" class="custom-file-label img-label" for="rekening_koran">Unggah dokumen rekening koran</label>
-                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 2mb</small>
+                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 6mb</small>
                 <?= form_error('rekening_koran', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
@@ -398,7 +398,7 @@
                                 text-overflow: ellipsis;
                                 height: 33px;
                                 font-size: .8rem;" class="custom-file-label img-label" for="profil_perusahaan">Unggah dokumen profil perusahaan</label>
-                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 2mb</small>
+                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 6mb</small>
                 <?= form_error('profil_perusahaan', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
@@ -418,7 +418,7 @@
                                 text-overflow: ellipsis;
                                 height: 33px;
                                 font-size: .8rem;" class="custom-file-label img-label" for="laporan_keuangan">Unggah dokumen Laporan Keuangan </label>
-                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 2mb</small>
+                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 6mb</small>
                 <?= form_error('laporan_keuangan', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
@@ -437,7 +437,7 @@
                                 text-overflow: ellipsis;
                                 height: 33px;
                                 font-size: .8rem;" class="custom-file-label img-label" for="dokumen_pendukung">Unggah dokumen Pendukung (proposal)</label>
-                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 2mb</small>
+                <small style="color: blue; font-size: 10px;">*Hanya mengizinkan dokumen PDF dan jpg dengan maksimal ukuran dokumen 6mb</small>
                 <?= form_error('dokumen_pendukung', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
