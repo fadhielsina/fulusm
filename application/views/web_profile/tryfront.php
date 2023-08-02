@@ -239,96 +239,67 @@ function ribuan($angka)
 
 
           <?php if ($query_pendanaan->jumlah_pendanaan >= 1) { ?>
-
             <a href="#" class="kt-widget__title">
-
-
               <img class="card_holder_img" style="
-    max-width: 100%;
-    height: 86px;
-    object-fit: cover;
-    right: 22px;
-    position: absolute;
-    display: inline-block;
-    border-radius: 8px;
-    " src="https://www.fulusme.id/assets/img/lunas.jpeg">
-
-
+                        max-width: 100%;
+                        height: 86px;
+                        object-fit: cover;
+                        right: 22px;
+                        position: absolute;
+                        display: inline-block;
+                        border-radius: 8px;
+                        " src="https://www.fulusme.id/assets/img/lunas.jpeg">
             </a>
-
           <?php } ?>
 
-          <?php if ($query_pendanaan->jumlah_pendanaan >= 1) { ?>
+          <p style=" color: black;"> Efek Bersifat Utang </p>
+          <p>ID Proyek : <span style=" color: #fd7e14;"><?php echo $obj["id"] ?></span></p>
 
-            <a href="#" class="kt-widget__title">
+          <?php if ($obj["code_saham_alias"]) {
 
+            $inikodealias = $obj["code_saham_alias"];
+          } else {
+            $inikodealias = "-";
+          } ?>
 
-              <img class="card_holder_img" style="
-    max-width: 100%;
-    height: 86px;
-    object-fit: cover;
-    right: 22px;
-    position: absolute;
-    display: inline-block;
-    border-radius: 8px;
-    " src="https://www.fulusme.id/assets/img/lunas.jpeg" "="">
-                                                                    
-                                                                    
-                                                                    </a>
-    
-    <?php } ?>
-    
-            <p style=" color: black;"> Efek Bersifat Utang </p>
-              <p>ID Proyek : <span style=" color: #fd7e14;"><?php echo $obj["id"] ?></span></p>
+          <p>Kode Efek : <span style=" color: #040538;"><?php echo $inikodealias ?></span></p>
 
-
-
-              <?php if ($obj["code_saham_alias"]) {
-
-                $inikodealias = $obj["code_saham_alias"];
-              } else {
-                $inikodealias = "-";
-              }
-
-
+          <div class="kt-widget__text">
+            Efek Terjual
+          </div>
+          <div class="progress" style="height: 5px;width: 100%;">
+            <?php if ($query_pendanaan->jumlah_pendanaan > 1) : ?>
               ?>
-              <p>Kode Efek : <span style=" color: #040538;"><?php echo $inikodealias ?></span></p>
-
-              <div class="kt-widget__text">
-                Efek Terjual
-              </div>
-              <div class="progress" style="height: 5px;width: 100%;">
-
-
-                <?php if ($query_pendanaan->jumlah_pendanaan > 1) {
-                ?>
-
-                  <div class="progress-bar kt-bg-success" role="progressbar" style="width: <?php echo 100 ?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-
-              </div>
-              <div class="kt-widget__stats">
-                <?php echo  100 ?>%
-              </div>
-            <?php       } else {
-            ?>
-
-              <div class="progress-bar kt-bg-success" role="progressbar" style="width: <?php echo $query_pendanaan->jumlah_pendanaan * 100 ?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar kt-bg-success" role="progressbar" style="width: <?php echo 100 ?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="kt-widget__stats">
+            <?php echo  100 ?>%
+          </div>
+        <?php else : ?>
+          <div class="progress-bar kt-bg-success" role="progressbar" style="width: <?php echo $query_pendanaan->jumlah_pendanaan * 100 ?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <div class="kt-widget__stats">
           <span style=" color: #040538;"><?php echo $query_pendanaan->jumlah_pendanaan * 100 ?>%</span>
         </div>
-
-
-      <?php } ?>
+      <?php endif; ?>
       <div class="kt-widget__text">
         Sisa Waktu
       </div>
-      <div class="progress" style="height: 5px;width: 100%;">
-        <div class="progress-bar kt-bg-success" role="progressbar" style="width: <?php echo $obj["persensisa"] * 100 ?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="kt-widget__stats">
-        <span style=" color: #040538;"><?php echo $obj["totalhari"] - $obj["sisawaktu"] ?> Hari</span>
-      </div>
+      <?php if ($query_pendanaan->jumlah_pendanaan >= 1) { ?>
+        <div class="progress" style="height: 5px;width: 100%;">
+          <div class="progress-bar kt-bg-success" role="progressbar" style="width:100%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="kt-widget__stats">
+          <span style=" color: #040538;"> - Hari</span>
+        </div>
+      <?php } else { ?>
+        <div class="progress" style="height: 5px;width: 100%;">
+          <div class="progress-bar kt-bg-success" role="progressbar" style="width: <?php echo $obj["persensisa"] * 100 ?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="kt-widget__stats">
+          <span style=" color: #040538;"><?php echo $obj["totalhari"] - $obj["sisawaktu"] ?> Hari</span>
+        </div>
+      <?php } ?>
       <div class="kt-widget__item">
         <span class="kt-widget__date">
           Rating Proyek :
@@ -353,9 +324,6 @@ function ribuan($angka)
             <button type="button" style="display: inline;background-color:#fd7e14;color:#fff;border-radius: 15px;" class="btn btn-block btn-sm ">Beli</button></a>
         <?php } ?>
         </div>
-
-
-
       </div>
 
       <!-- bottom -->
@@ -479,14 +447,14 @@ function ribuan($angka)
 
 
               <img class="card_holder_img" style="
-    max-width: 100%;
-    height: 86px;
-    object-fit: cover;
-    right: 22px;
-    position: absolute;
-    display: inline-block;
-    border-radius: 8px;
-    " src="https://www.fulusme.id/assets/img/lunas.jpeg">
+                    max-width: 100%;
+                    height: 86px;
+                    object-fit: cover;
+                    right: 22px;
+                    position: absolute;
+                    display: inline-block;
+                    border-radius: 8px;
+                    " src="https://www.fulusme.id/assets/img/lunas.jpeg">
 
 
             </a>
@@ -499,19 +467,19 @@ function ribuan($angka)
 
 
               <img class="card_holder_img" style="
-    max-width: 100%;
-    height: 86px;
-    object-fit: cover;
-    right: 22px;
-    position: absolute;
-    display: inline-block;
-    border-radius: 8px;
-    " src="https://www.fulusme.id/assets/img/lunas.jpeg" "="">
+                    max-width: 100%;
+                    height: 86px;
+                    object-fit: cover;
+                    right: 22px;
+                    position: absolute;
+                    display: inline-block;
+                    border-radius: 8px;
+                    " src="https://www.fulusme.id/assets/img/lunas.jpeg" "="">
                                                                     
                                                                     
                                                                     </a>
     
-    <?php } ?>
+          <?php } ?>
     
     
     
@@ -558,8 +526,7 @@ function ribuan($angka)
               <div class="progress-bar kt-bg-success" role="progressbar" style="width:<?php echo 100 - ((((new Datetime(date("d F Y")))->diff(new DateTime(date("d F Y", $obj['end_ts'])))->format('%R%a')) / 3 * 100)); ?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="kt-widget__stats">
-              <?php echo str_replace('+', '', (new Datetime(date("d F Y")))->diff(new DateTime(date("d F Y", $obj['end_ts'])))->format('%R%a')); ?> Hari
-
+              <?php echo str_replace('+', '', (new Datetime(date("d F Y")))->diff(new DateTime(date("d F Y", $obj['end_ts'])))->format('%R%a')); ?> Harii
             </div>
 
             <div class="kt-widget__stats">
