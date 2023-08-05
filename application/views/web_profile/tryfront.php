@@ -212,7 +212,7 @@ function ribuan($angka)
 </div>
 
 <!-- project-->
-<div class="site-section" style="padding-bottom: 5px;">
+<div class="site-section" style="padding-top: 50px;">
   <div class="container">
     <div class="row border-responsive">
       <?php foreach ($project as $obj) { ?>
@@ -229,7 +229,7 @@ function ribuan($angka)
           ->get()->row();
         ?>
 
-        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 border-right" style="font-size:13px;">
+        <div class="col-md-6 col-lg-3 mt-5 mb-4 mb-lg-0 border-right" style="font-size:13px;">
           <img <?php if ($obj["image"]) { ?> src="<?php echo base_url('assets/') . "img/profile/" . $obj["image"] ?> " style="border-bottom:4px #ff6f05 solid;border-top:4px #ff6f05 solid;margin-bottom:15px;width: 90%;height: 250px;border-radius:0 0 10% 10%; margin-left: auto;
   margin-right: auto;" <?php } else { ?> src="<?php echo base_url('assets/') ?>img/noimage.png" <?php } ?> style="border-bottom:4px #ff6f05 solid;margin-bottom:15px;width:70%;border-radius:0 0 20% 20%; margin-left: auto;
   margin-right: auto;">
