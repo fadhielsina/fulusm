@@ -10,26 +10,30 @@ class Welcome extends CI_Controller
 		// Cek Pendanaan
 		$this->cek_pendanaan();
 	}
-	
-	function test_api(){
-	    $data_post = [
-	        'id' => 1,
-	        'nama' => 'Fadhiel'
-	        ];
+
+	function test_api()
+	{
+		$data_post = [
+			'id' => 1,
+			'nama' => 'Fadhiel'
+		];
 		$ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"http://backoff.fulusme.id/api/example/coba");
-        curl_setopt($ch, CURLOPT_POST, 1);
-        // In real life you should use something like:
-        curl_setopt($ch, CURLOPT_POSTFIELDS, 
-                 http_build_query($data_post));
-        
-        // Receive server response ...
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
-        $server_output = curl_exec($ch);
-        curl_close($ch);
-        
-        var_dump($server_output);
+		curl_setopt($ch, CURLOPT_URL, "http://backoff.fulusme.id/api/example/coba");
+		curl_setopt($ch, CURLOPT_POST, 1);
+		// In real life you should use something like:
+		curl_setopt(
+			$ch,
+			CURLOPT_POSTFIELDS,
+			http_build_query($data_post)
+		);
+
+		// Receive server response ...
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$server_output = curl_exec($ch);
+		curl_close($ch);
+
+		var_dump($server_output);
 	}
 
 	function cek_pendanaan()
@@ -37,7 +41,7 @@ class Welcome extends CI_Controller
 		$all_pendanaan = $this->db->select('id,pending_ts')->from('pendanaan')->where('status', 0)->get()->result();
 		foreach ($all_pendanaan as $pendanaan) :
 			if ($pendanaan->pending_ts < time()) :
-				$overtime = $pendanaan->pending_ts + 60*180;
+				$overtime = $pendanaan->pending_ts + 60 * 180;
 				$this->db->update('pendanaan', ['status' => 2, 'canceled_ts' => $overtime], ['id' => $pendanaan->id]);
 			endif;
 		endforeach;
@@ -357,6 +361,23 @@ class Welcome extends CI_Controller
 
 
 		// $this->load->view('templates/footer');
+	}
+
+	public function list_project()
+	{
+		$this->db->select("project.*, COALESCE(sum(pendanaan.nominal), 0) as nominal, COALESCE(sum(pendanaan.nominal)/project.modal_project, 0) as jumlah_pendanaan, project_document.prospektus as prospektus, ,(datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\"))-datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), current_date())) as sisawaktu, datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\")) as totalhari,
+			(datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\"))-datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), current_date()))/datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\")) as persensisa");
+		$this->db->from('project');
+		$this->db->where("project.version ", 1);
+		$this->db->join('pendanaan', 'pendanaan.project_id = project.id', 'left');
+		$this->db->join('project_document', 'project_document.project_id = project.id', 'left');
+		$this->db->order_by('project.create_ts', 'DESC');
+		$this->db->group_by("project.id");
+		$project = $this->db->get()->result_array();
+		$data['project'] = $project;
+		$this->load->view('web_profile/header_web_profile.php', $data);
+		$this->load->view('web_profile/list_project', $data);
+		$this->load->view('web_profile/footer_web_profile.php', $data);
 	}
 
 	public function index_coba()
