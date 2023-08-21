@@ -409,10 +409,10 @@ function ribuan($angka)
 
                   <div class="kt-widget__details">
                     <span class="kt-widget__title">Periode Dividen</span><br />
-                    <?php if ($obj['type'] == 1) : ?>
-                      <span class="kt-widget__value">6 bulan</span>
-                    <?php else : ?>
+                    <?php if ($obj['type'] == 2) : ?>
                       <span class="kt-widget__value">3 bulan</span>
+                    <?php else : ?>
+                      <span class="kt-widget__value">6 bulan</span>
                     <?php endif; ?>
                   </div>
                 </div>
