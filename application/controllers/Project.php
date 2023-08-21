@@ -97,8 +97,6 @@ class Project extends CI_Controller
 			$this->load->view('project/add', $data);
 			$this->load->view('templates/footer');
 		} else {
-
-
 			list($day, $month, $year) = explode('/', $this->input->post('deadline'));
 			$usedob = date("Y-m-d", mktime(0, 0, 0, $month, $day, $year));
 

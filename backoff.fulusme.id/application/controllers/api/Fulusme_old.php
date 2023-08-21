@@ -110,11 +110,48 @@ class Fulusme extends REST_Controller
         return $hari_ini;
     }
 
+    function tokenAPI($data)
+    {
+        $client_id = 'd5030099-6884-4968-9d2e-71436ecea566';
+        $secret_key = 'f7a0a209-9a19-4e49-a36f-eac18990dc8f';
+
+        $xtimetamp = date('Y-m-d\TH:i:s+07:00');
+        $signature = $client_id . '|' . $xtimetamp;
+        $h_signature = hash_hmac('sha256', $signature); //sementara di dokumen hanya 1 yg di hash
+        $h_signature = hash_hmac('sha256', $signature, $other_parameter); //ini fungsi untuk hash sha256 parameternya 2
+
+        $curl = curl_init('url_to_post');
+        curl_setopt($curl, CURLOPT_URL, 'https://sandbox.danamon.co.id/api/oauth/token');
+        curl_setopt($curl, CURLOPT_POST, 1);
+        $headers = array(
+            'X-TIMESTAMP:' . $auth,
+            'Content-Type:application/x-www-form-urlencoded',
+            ''
+        );
+        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query(array(
+            'grant_type' => 'client_credentials'
+        )));
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        $api = json_decode($response, true);
+        //      $this->response($api, REST_Controller::HTTP_OK);
+        // var_dump($api['access_token']);
+        if ($this->db->insert('virtual_account', ['username_password' => $auth, 'access_token' => 'Bearer ' . $api['access_token']])) :
+            $last_id = $this->db->insert_id();
+            $this->generateVA($last_id, $api['access_token'], $data);
+        endif;
+    }
+
     function create_virtual_account_old($data)
     {
         $client_id = 'd5030099-6884-4968-9d2e-71436ecea566';
         $secret_key = 'f7a0a209-9a19-4e49-a36f-eac18990dc8f';
         $auth = base64_encode("$client_id:$secret_key");
+        $xtimetamp = date('Y-m-d\TH:i:s+07:00');
 
         $curl = curl_init('url_to_post');
         curl_setopt($curl, CURLOPT_URL, 'https://sandbox.danamon.co.id/api/oauth/token');

@@ -124,7 +124,7 @@
 						</div>
 					</div>
 					<div class="row">
-					    <div class="col">
+						<div class="col">
 							<label>Harga Perlembar Saham</label>
 							<h5><?= number_format($history_project->harga_perlembar_shm) ?></h5>
 						</div>
@@ -186,6 +186,7 @@
 					?>
 					<form action="<?= base_url('project/form_project') ?>/<?= $data_project->id_project ?>" method="post">
 						<input type="hidden" name="id" value="<?= $data_project->id_project ?>">
+						<input type="hidden" name="type" value="<?= $data_project->type ?>">
 						<div class="row mb-4">
 							<div class="col">
 								<label>Kode Saham </label>
@@ -202,7 +203,7 @@
 							</div>
 						</div>
 						<div class="row">
-						    <div class="col">
+							<div class="col">
 								<label>Harga Perlembar Saham</label>
 								<h5><input class="form-control" <?= $cek ?> type="text" name="perlembar_saham" id="perlembar_saham" onkeyup="formatNumber(this)" value="<?= number_format($data_project->harga_perlembar_shm) ?>">
 								</h5>

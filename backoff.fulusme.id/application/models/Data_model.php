@@ -20,7 +20,7 @@ class Data_model extends CI_Model
 
 	function get_all_data_pendana()
 	{
-	    return $this->db_fulus->query('SELECT a.*, a.id as id_user, a.full_name as name, b.email as email_user FROM pendana a JOIN `user` b on a.user_id = b.id')->result();
+		return $this->db_fulus->query('SELECT a.*, a.id as id_user, a.full_name as name, b.email as email_user FROM pendana a JOIN `user` b on a.user_id = b.id')->result();
 	}
 
 	function getPerlot($id)
@@ -398,6 +398,7 @@ class Data_model extends CI_Model
 		$rating = $this->input->post('rating');
 		$code_saham = $this->input->post('code_saham');
 		$note = $this->input->post('note');
+		$type = $this->input->post('type');
 		$jumlah_lot = (int)$jumlah_lembar_shm / 100;
 
 		$query_project = $this->db_fulus->get_where('project', ['id' => $id])->row();
@@ -422,6 +423,7 @@ class Data_model extends CI_Model
 			'harga_perlot' => intval(str_replace(',', '', $harga_perlot)),
 			'rating' => $rating,
 			'version' => 1,
+			'type' => $type,
 			'harga_perlembar_shm' => intval(str_replace(',', '', $perlembar_saham)),
 			'code_saham_alias' => $code_saham,
 			'jumlah_lembar_shm' => $jumlah_lembar_shm
@@ -541,7 +543,7 @@ class Data_model extends CI_Model
 		// 		$config['upload_path'] = '../public_html/assets/img/profile/';
 		$config['upload_path']          = '../assets/img/profile/';
 		$config['allowed_types']        = 'pdf|gif|jpg|png';
-		$config['file_name']            = 'foto_project_'.time().'';
+		$config['file_name']            = 'foto_project_' . time() . '';
 
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
@@ -571,7 +573,7 @@ class Data_model extends CI_Model
 		// 		$config['upload_path'] = '../public_html/assets/file_user/prospektus/';
 		$config['upload_path']          = '../assets/file_user/prospektus/';
 		$config['allowed_types']        = 'pdf|gif|jpg|png';
-		$config['file_name']            = 'prospektus_'.time().'';
+		$config['file_name']            = 'prospektus_' . time() . '';
 
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
