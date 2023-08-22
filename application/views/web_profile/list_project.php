@@ -17,19 +17,20 @@ function ribuan($angka)
     <div class="container">
         <div class="row border-responsive">
             <?php foreach ($project as $obj) { ?>
-                <?php if ($obj["totalhari"] - $obj["sisawaktu"] > 0) : ?>
 
-                    <?php
-                    $idp = $obj['id'];
-                    $query_pendanaan = $this->db->select('COALESCE(sum(pendanaan.nominal), 0) as nominal, COALESCE(sum(pendanaan.nominal)/project.modal_project, 0) as jumlah_pendanaan,')
-                        ->from('pendanaan')->join('project', 'project.id = pendanaan.project_id')
-                        ->where('project.version', 1)
-                        ->where('project.id', $idp)
-                        ->group_start()
-                        ->where('pendanaan.status', 0)->or_where('pendanaan.status', 1)
-                        ->group_end()
-                        ->get()->row();
-                    ?>
+                <?php
+                $idp = $obj['id'];
+                $query_pendanaan = $this->db->select('COALESCE(sum(pendanaan.nominal), 0) as nominal, COALESCE(sum(pendanaan.nominal)/project.modal_project, 0) as jumlah_pendanaan,')
+                    ->from('pendanaan')->join('project', 'project.id = pendanaan.project_id')
+                    ->where('project.version', 1)
+                    ->where('project.id', $idp)
+                    ->group_start()
+                    ->where('pendanaan.status', 0)->or_where('pendanaan.status', 1)
+                    ->group_end()
+                    ->get()->row();
+                ?>
+
+                <?php if ($obj["totalhari"] - $obj["sisawaktu"] > 0 || $query_pendanaan->jumlah_pendanaan >= 1) : ?>
 
                     <div class="col-md-6 col-lg-3 mt-5 mb-4 mb-lg-0 border-right" style="font-size:13px;">
                         <img <?php if ($obj["image"]) { ?> src="<?php echo base_url('assets/') . "img/profile/" . $obj["image"] ?> " style="border-bottom:4px #ff6f05 solid;border-top:4px #ff6f05 solid;margin-bottom:15px;width: 90%;height: 250px;border-radius:0 0 10% 10%; margin-left: auto;
