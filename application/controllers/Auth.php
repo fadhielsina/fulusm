@@ -43,7 +43,7 @@ class Auth extends CI_Controller
 			if ($user['is_active'] == 1) {
 				if (password_verify($password, $user['password'])) {
 					if ($user['login_status'] == 0) {
-						$this->db->update('user', ['login_status' => 1], ['email' => $email]);
+						$this->db->update('user', ['login_status' => 1, 'last_login' => time()], ['email' => $email]);
 						$data = [
 							'id' => $user['id'],
 							'email' => $user['email'],

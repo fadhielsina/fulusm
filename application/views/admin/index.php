@@ -24,6 +24,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Role</th>
             <th scope="col">Date Created</th>
+            <th scope="col">Last Login</th>
             <th scope="col">Action</th>
             <th scope="col">Status</th>
             <th scope="col">Link Aktivasi</th>
@@ -40,7 +41,11 @@
               <td><?= $r['phone'] ?></td>
               <td><?= $r['role'] ?></td>
               <td><?= date('d-m-Y', $r['date_created']) ?></td>
-
+              <?php if ($r['last_login']) : ?>
+                <td><?= date('d-m-Y H:i:s', $r['last_login']) ?></td>
+              <?php else : ?>
+                <td> - </td>
+              <?php endif; ?>
               <td>
                 <a href="" data-toggle="modal" data-target="#editRoleModal" data-role="<?= $r['role_id'] ?>" data-name="<?= $r['name'] ?>" data-id="<?= $r['email'] ?>" data-is_active="<?= $r['is_active'] ?>" data-email="<?= $r['email'] ?>">
                   <span class="badge badge-pill badge-success">ubah</span></a>
