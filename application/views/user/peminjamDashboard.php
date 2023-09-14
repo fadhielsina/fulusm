@@ -14,7 +14,7 @@
         <div class="card cardDash">
           <div class="card-body">
             <h5 class="card-title">Proyek Tertunda</h5>
-            Anda Memiliki <?= sizeof($pending_project) ?> peroyek tertunda <br>
+            Anda Memiliki <?= $pending_project ?> peroyek tertunda <br>
             <a href="<?= base_url('user/pendingLoan') ?>">lihat detail</a>
           </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="card cardDash">
           <div class="card-body">
             <h5 class="card-title">Proyek Berjalan</h5>
-            Anda Memiliki <?= sizeof($ongoing_project) ?> proyek berjalan <br>
+            Anda Memiliki <?= $ongoing_project ?> proyek berjalan <br>
             <a href="<?= base_url('user/ongoingLoan') ?>"> lihat detail</a>
           </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="card cardDash">
           <div class="card-body">
             <h5 class="card-title">Proyek di Tolak</h5>
-            Anda Memiliki <?= sizeof($rejected_project) ?> proyek ditolak <br>
+            Anda Memiliki <?= $rejected_project ?> proyek ditolak <br>
             <a href="<?= base_url('user/rejectedLoan') ?>"> lihat detail</a>
           </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="card cardDash">
           <div class="card-body">
             <h5 class="card-title">Proyek Berhasil</h5>
-            Anda Memiliki <?= sizeof($finished_project) ?> proyek berhasil<br>
+            Anda Memiliki <?= $finished_project ?> proyek berhasil<br>
             <a href="<?= base_url('user/historyLoan') ?>"> lihat detail</a>
           </div>
         </div>

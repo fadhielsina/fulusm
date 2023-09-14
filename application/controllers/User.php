@@ -693,44 +693,17 @@ class User extends CI_Controller
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('templates/top_bar', $data);
 			$data["project"] = $this->db->get_where('project', ["peminjam_id" => $data['user']['id']])->result_array();
-			$data["pending_project"] =
-				$this->db->get_where(
-					'project',
-					[
-						"peminjam_id" => $data['user']['id'],
-						"status" => 0
-					]
-				)->result_array();
+			$data["pending_project"] = $this->db->select('*')->from('project')
+				->where('peminjam_id', $data['user']['id'])->where('status', 0)->where('version', 1)->get()->num_rows();
 
-			$data["ongoing_project"] =
-				$this->db->order_by('create_ts', 'DESC')->get_where(
-					'project',
-					[
-						"peminjam_id" => $data['user']['id'],
-						"status" => 2
-					]
-				)->result_array();
+			$data["ongoing_project"] = $this->db->select('*')->from('project')
+				->where('peminjam_id', $data['user']['id'])->where('status', 1)->where('version', 1)->get()->num_rows();
 
-			$data["finished_project"] =
+			$data["finished_project"] = $this->db->select('*')->from('project')
+				->where('peminjam_id', $data['user']['id'])->where('status', 5)->where('version', 1)->get()->num_rows();
 
-				$this->db->get_where(
-					'project',
-					[
-						"peminjam_id" => $data['user']['id'],
-						"status" => 5
-					]
-				)->result_array();
-
-
-			$data["rejected_project"] =
-
-				$this->db->get_where(
-					'project',
-					[
-						"peminjam_id" => $data['user']['id'],
-						"status" => 3
-					]
-				)->result_array();
+			$data["rejected_project"] = $this->db->select('*')->from('project')
+				->where('peminjam_id', $data['user']['id'])->where('status', 3)->where('version', 1)->get()->num_rows();
 
 			$this->load->view('user/peminjamDashboard', $data);
 		}
@@ -1466,7 +1439,8 @@ class User extends CI_Controller
 	{
 		$data['title'] = 'Proyek Tertunda';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['project'] = $this->db->get_where('project', ['peminjam_id' => $data['user']['id'], 'status' => 0])->result_array();
+		$data['project'] = $this->db->select('*')->from('project')
+			->where('peminjam_id', $data['user']['id'])->where('status', 0)->where('version', 1)->get()->result_array();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -1543,7 +1517,8 @@ class User extends CI_Controller
 	{
 		$data['title'] = 'Pembiayaan Berhasil';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['project'] = $this->db->get_where('project', ['peminjam_id' => $data['user']['id'], 'status' => 2])->result_array();
+		$data['project'] = $this->db->select('*')->from('project')
+			->where('peminjam_id', $data['user']['id'])->where('status', 5)->where('version', 1)->get()->result_array();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/top_bar', $data);
@@ -1567,7 +1542,8 @@ class User extends CI_Controller
 	{
 		$data['title'] = 'Pembiayaan Berjalan';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['project'] = $this->db->get_where('project', ['peminjam_id' => $data['user']['id'], 'status' => 1])->result_array();
+		$data['project'] = $data['project'] = $this->db->select('*')->from('project')
+			->where('peminjam_id', $data['user']['id'])->where('status', 1)->where('version', 1)->get()->result_array();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/top_bar', $data);
@@ -1598,7 +1574,8 @@ class User extends CI_Controller
 	{
 		$data['title'] = 'Pembiayaan ditolak';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['project'] = $this->db->get_where('project', ['peminjam_id' => $data['user']['id'], 'status' => 3])->result_array();
+		$data['project'] = $this->db->select('*')->from('project')
+			->where('peminjam_id', $data['user']['id'])->where('status', 3)->where('version', 1)->get()->result_array();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/top_bar', $data);

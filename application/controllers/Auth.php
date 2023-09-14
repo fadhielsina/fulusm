@@ -44,6 +44,13 @@ class Auth extends CI_Controller
 				if (password_verify($password, $user['password'])) {
 					if ($user['login_status'] == 0) {
 						$this->db->update('user', ['login_status' => 1, 'last_login' => time()], ['email' => $email]);
+						$this->db->insert('history_login', [
+							'id_user' => $user['id'],
+							'name' => $user['name'],
+							'datetime' => date('Y-m-d H:i:s'),
+							'ip' => $this->input->ip_address(),
+							'email' => $user['email']
+						]);
 						$data = [
 							'id' => $user['id'],
 							'email' => $user['email'],
@@ -300,7 +307,6 @@ class Auth extends CI_Controller
 
 	public function forgotPassword()
 	{
-
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Fulusme  - Forgot Password';

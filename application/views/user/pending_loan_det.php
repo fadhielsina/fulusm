@@ -34,10 +34,6 @@
            <small>Lokasi Proyek</small>
            <h5><?= $project[0]["lokasi_project"] ?></h5>
          </div>
-
-
-
-
        </div>
 
        <div class="row" style="padding: 50px 10px ; padding-top: 0px;">
@@ -54,15 +50,8 @@
            <small>Keuntungan Proyek</small>
            <h5 class="keuntungan_p"><?= $project[0]["keuntungan"] ?></h5>
          </div>
-
-
-
-
-
        </div>
-
        <div class="row" style="padding: 0px 10px ; padding-bottom: 20px;">
-
 
          <div class="col-lg-4">
            <small>Status Proyek</small>
@@ -96,15 +85,118 @@
          </div>
        </div>
 
+       <hr>
+
+       <div class="row" style="margin-top: 50px; padding: 50px 10px ; padding-bottom: 0px;">
+         <div class="col-lg">
+           <h3>Skema Kebutuhan Pendanaan</h3>
+         </div>
+       </div>
+       <div class="row" style="margin-top: 50px; padding: 50px 10px ; padding-top: 0px;">
+         <div class="col-lg-4">
+           <small>Nama Efek</small>
+           <h5>Efek bersifat utang yang ditawarkan melalui layanan urun dana</h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Kode Penerbit Efek</small>
+           <h5><?= $project[0]["code_saham_alias"] ?></h5>
+         </div>
+
+         <div class="col-lg-4">
+           <small>Dana Yang DIbutuhkan</small>
+           <h5>Rp. <?= number_format($project[0]["modal_project"]) ?></h5>
+         </div>
+       </div>
+
+       <div class="row" style="padding: 50px 10px ; padding-top: 0px;">
+         <div class="col-lg-4">
+           <small>Tingkat Bunga</small>
+           <h5>4,5%</h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Jenis Tingkat Bunga</small>
+           <h5>Fixed</h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Periode Pembayaran Bunga</small>
+           <h5>Pada waktu jatuh tempo</h5>
+         </div>
+       </div>
+
+       <div class="row" style="padding: 50px 10px ; padding-top: 0px;">
+         <div class="col-lg-4">
+           <small>Periode Perhitungan Pembayaran Bunga</small>
+           <h5>30/90</h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Masa Penawaran pada Penyelenggara</small>
+           <h5>45 Hari</h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Tanggal Distribusi</small>
+           <h5> - </h5>
+         </div>
+       </div>
+
+       <div class="row" style="padding: 50px 10px ; padding-top: 0px;">
+         <div class="col-lg-4">
+           <small>Tanggal Jatuh Tempo</small>
+           <h5> - </h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Tanggal Pembayaran Bunga Pertama</small>
+           <h5> - </h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Jangka Waktu Penerbitan</small>
+           <h5> - </h5>
+         </div>
+       </div>
+
+       <div class="row" style="padding: 50px 10px ; padding-top: 0px;">
+         <div class="col-lg-4">
+           <small>Satuan Pemnidahbukuan</small>
+           <h5>Rp. <?= number_format($project[0]["modal_project"]) ?></h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Satuan Perdagangan</small>
+           <h5>0</h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Jadwal Pembayaran Bunga</small>
+           <h5> - </h5>
+         </div>
+       </div>
+
+       <div class="row" style="padding: 50px 10px ; padding-top: 0px;">
+         <div class="col-lg-4">
+           <small>Tujuan Penggunaan Dana</small>
+           <h5><?= $project[0]["deskripsi_project"] ?></h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Informasi Mengenai Penyelenggara</small>
+           <h5> PT Fintek Andalan Solusi Teknologi </h5>
+         </div>
+         <div class="col-lg-4">
+           <small>Informasi Mengenai Bank Kustodian</small>
+           <h5> Bank Kustodian, Bank Danamon Inonesia Tbk </h5>
+         </div>
+       </div>
+
+       <div class="row" style="padding: 50px 10px ; padding-top: 0px;">
+         <div class="col">
+           <small>Ketentuan Terkait Perdagangan SCF</small>
+           <h5>Dalam hal efek yang ditawarkan merupakan efek bersifat Utang atau Sukuk, Penerbit wajib melakukan penyetoran sejumlah total Efek sesuai dengan hasil penawaran Efek kepada Penyelenggara paling lambat 2 hari kerja setelah masa penawaran Efek berakhir.</h5>
+         </div>
+       </div>
 
        <hr>
+
        <div class="row" style="margin-top: 40px; margin-bottom: 40px; padding: 50px 10px ; padding-bottom: 0px;padding-top: 0px;">
          <div class="col-lg">
            <h3>Detail Pemberi Proyek</h3>
          </div>
        </div>
-
-
 
        <div class="row" style="margin-top: 50px; padding: 50px 10px ; padding-top: 0px;">
          <div class="col-lg-4">
