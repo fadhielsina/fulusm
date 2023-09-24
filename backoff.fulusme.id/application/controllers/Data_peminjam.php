@@ -50,7 +50,7 @@ class Data_peminjam extends CI_Controller
 			$this->load->view('template/template_xpanel', $data);
 		} else {
 			$this->data_model->edit_document();
-			redirect('data_peminjam/project_detail/' . $id . '');
+			redirect('project/project_detail/' . $id . '');
 		}
 	}
 
