@@ -252,7 +252,6 @@ class Data_model extends CI_Model
 		$config['allowed_types']        = 'pdf|gif|jpg|png';
 
 		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
 
 		if (!$this->upload->do_upload('spk_file')) {
 			$error = array('error' => $this->upload->display_errors());
@@ -302,6 +301,11 @@ class Data_model extends CI_Model
 			$laporan_keuangan_file = $dataPro['upload_data']['file_name'];
 		}
 
+		$config2['upload_path']          = '../assets/file_user/prospektus';
+		$config2['allowed_types']        = 'pdf|gif|jpg|png';
+		$config2['file_name']            = 'prospektus_' . time() . '';
+		$this->upload->initialize($config2);
+
 		if (!$this->upload->do_upload('dokumen_pendukung_file')) {
 			$error = array('error' => $this->upload->display_errors());
 			$dokumen_pendukung_file = $this->input->post('dokumen_pendukung');
@@ -327,6 +331,10 @@ class Data_model extends CI_Model
 			$this->db->set($dataEdit);
 			$this->db->where('project_id', $id_project);
 			$this->db->update('history_project_document');
+
+			$this->db_fulus->set($dataEdit);
+			$this->db_fulus->where('project_id', $id_project);
+			$this->db_fulus->update('project_document');
 		} else {
 			$this->db->insert('history_project_document', $dataEdit);
 		}
