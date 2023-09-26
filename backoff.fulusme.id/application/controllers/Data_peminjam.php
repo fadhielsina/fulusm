@@ -71,6 +71,23 @@ class Data_peminjam extends CI_Controller
 		}
 	}
 
+	function download_prospektus($doc = null)
+	{
+		$this->load->helper('download');
+		if ($doc == null) {
+			echo "User tidak upload document!";
+			echo "<br>";
+			echo " <input type='button' value='Go back!' onclick='history.back()'> ";
+		} else {
+			$download = force_download('../assets/file_user/prospektus/' . $doc . '', NULL);
+			if ($download == null) {
+				echo "File $doc tidak tersedia!";
+				echo "<br>";
+				echo " <input type='button' value='Go back!' onclick='history.back()'> ";
+			}
+		}
+	}
+
 	function download_akad($id)
 	{
 		$this->load->helper('download');

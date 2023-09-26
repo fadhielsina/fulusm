@@ -130,7 +130,7 @@
 									</tr>
 									<tr>
 										<td class="font-bold ">Dokumen Pendukung</td>
-										<td class="pb-0"><a href="<?= base_url('data_peminjam/download_doc') ?>/<?= $data_project->prospektus ?>"><i class="mdi mdi-folder-download" title="Download File" style="font-size:23px; color:green;"></i></a></td>
+										<td class="pb-0"><a href="<?= base_url('data_peminjam/download_prospektus') ?>/<?= $data_project->prospektus ?>"><i class="mdi mdi-folder-download" title="Download File" style="font-size:23px; color:green;"></i></a></td>
 									</tr>
 								</tbody>
 							</table>
