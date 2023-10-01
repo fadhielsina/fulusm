@@ -1,20 +1,13 @@
 <?php
 // var_dump($project_retail);
-
-
 function rupiah($angka)
 {
-
   $hasil_rupiah = "Rp " . number_format($angka, 0, ',', '.');
   return $hasil_rupiah;
 };
 
-
-
-
 function ribuan($angka)
 {
-
   $hasil_rupiah = number_format($angka, 0, ',', '.');
   return $hasil_rupiah;
 }
@@ -22,6 +15,17 @@ function ribuan($angka)
 // var_dump(count($project));
 // exit;
 ?>
+
+<style>
+  @media only screen and (max-width: 600px) {
+    .border-right {
+      border-style: solid;
+      border-color: black;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+</style>
 
 <div class="slide-one-item home-slider owl-carousel">
   <div class="site-blocks-cover inner-page overlay" style="background-image: url(<?php echo base_url(); ?>assetsprofile/assetsbaru/images/bg2.jpg);" data-aos="fade" data-stellar-background-ratio="0.3">
@@ -251,19 +255,15 @@ function ribuan($angka)
                         " src="https://www.fulusme.id/assets/img/lunas.jpeg">
             </a>
           <?php } ?>
-
           <p style=" color: black;"> Efek Bersifat Utang </p>
           <p>ID Proyek : <span style=" color: #fd7e14;"><?php echo $obj["id"] ?></span></p>
-
           <?php if ($obj["code_saham_alias"]) {
 
             $inikodealias = $obj["code_saham_alias"];
           } else {
             $inikodealias = "-";
           } ?>
-
           <p>Kode Efek : <span style=" color: #040538;"><?php echo $inikodealias ?></span></p>
-
           <div class="kt-widget__text">
             Efek Terjual
           </div>
@@ -304,7 +304,6 @@ function ribuan($angka)
         <span class="kt-widget__date">
           Rating Proyek :
         </span>
-
         <div class="kt-widget__label-success">
           <span class="btn btn-label-brand btn-sm btn-bold btn-upper btn-info" style="margin-bottom:10px;">
             <?php if ($query_pendanaan->jumlah_pendanaan != 1) : ?>
@@ -315,7 +314,6 @@ function ribuan($angka)
               <? } ?><br />
           </span>
         <?php endif; ?>
-
 
         <?php if ($query_pendanaan->jumlah_pendanaan == 1) { ?>
           <!-- <button type="button" style="display: inline;background-color:#fd7e14;border-radius: 15px;" class="btn btn-brand btn-sm btn-upper" onClick="alert('Project ini sudah terdanai, tunggu project lainnya')">Beli</button> -->
@@ -338,75 +336,43 @@ function ribuan($angka)
           </div>
           <div id="collapseOne<?php echo $obj["id"] ?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body" style="border:none;">
-
               <div class="kt-widget__bottom">
                 <div class="kt-widget__item">
                   <div class="kt-widget__details">
                     <span class="kt-widget__title">Total Pemodalan</span><br />
                     <span class="kt-widget__value"><?php echo rupiah($obj["modal_project"]) ?>
                   </div>
-
-
-
                 </div>
 
-
-
-                <div class="kt-widget__item" style="margin: 0;
-    padding: 0;">
-
+                <div class="kt-widget__item" style="margin: 0;padding: 0;">
                   <div class="kt-widget__details">
-
-
                     <span class="kt-widget__title">Jumlah Efek yang diterbitkan</span><br />
                     <span class="kt-widget__value" style="height: 50px;"><?php echo ribuan($obj["jumlah_lembar_shm"]) ?> Lembar Efek</span>
                   </div>
                 </div>
 
-
-
-
-                <div class="kt-widget__item" style="margin: 0;
-    padding: 0;">
+                <div class="kt-widget__item" style="margin: 0;padding: 0;">
                   <div class="kt-widget__details">
-
                     <span class="kt-widget__title">Harga Per Lembar Efek</span><br />
                     <span class="kt-widget__value"><?php echo rupiah($obj["harga_perlembar_shm"]) ?></span>(Minimum Pembelian 1 Lot)
-
-
-
                   </div>
                 </div>
 
-
-                <div class="kt-widget__item" style="margin: 0;
-    padding: 0;">
-
+                <div class="kt-widget__item" style="margin: 0;padding: 0;">
                   <div class="kt-widget__details">
                     <span class="kt-widget__title">Harga Per 1 Lot Efek</span><br />
                     <span class="kt-widget__value"><?php echo rupiah(100 * $obj["harga_perlembar_shm"]) ?></span>(Per 1 Lot 100 Lembar Efek)
                   </div>
                 </div>
 
-
-
-
-                <div class="kt-widget__item" style="margin: 0;
-    padding: 0;">
-
+                <div class="kt-widget__item" style="margin: 0;padding: 0;">
                   <div class="kt-widget__details">
                     <span class="kt-widget__title">Jumlah Lot</span><br />
                     <span class="kt-widget__value"><?php echo (number_format($obj["jumlah_lot"])) ?></span>
                   </div>
                 </div>
 
-
-
-
-
-                <div class="kt-widget__item" style="margin: 0;
-    padding: 0;">
-
+                <div class="kt-widget__item" style="margin: 0;padding: 0;">
                   <div class="kt-widget__details">
                     <span class="kt-widget__title">Periode Dividen</span><br />
                     <?php if ($obj['type'] == 2) : ?>
@@ -423,7 +389,6 @@ function ribuan($angka)
           </div>
         </div>
       </div>
-
     </div>
   <?php } ?>
   </div>
