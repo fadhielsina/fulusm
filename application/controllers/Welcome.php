@@ -330,7 +330,6 @@ class Welcome extends CI_Controller
 			(datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\"))-datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), current_date()))/datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\")) as persensisa");
 			$this->db->from('project');
 			$this->db->where("project.version ", 1);
-			$this->db->limit(4, 0);
 			$this->db->join('pendanaan', 'pendanaan.project_id = project.id', 'left');
 			$this->db->join('project_document', 'project_document.project_id = project.id', 'left');
 			$this->db->order_by('project.create_ts', 'DESC');
@@ -365,7 +364,7 @@ class Welcome extends CI_Controller
 	public function list_project()
 	{
 		$this->db->select("project.*, COALESCE(sum(pendanaan.nominal), 0) as nominal, COALESCE(sum(pendanaan.nominal)/project.modal_project, 0) as jumlah_pendanaan, project_document.prospektus as prospektus, ,(datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\"))-datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), current_date())) as sisawaktu, datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\")) as totalhari,
-			(datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\"))-datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), current_date()))/datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\")) as persensisa");
+		(datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\"))-datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), current_date()))/datediff(FROM_UNIXTIME(`project`.end_ts, \"%Y-%m-%d\"), FROM_UNIXTIME(`project`.scoring_ts, \"%Y-%m-%d\")) as persensisa");
 		$this->db->from('project');
 		$this->db->where("project.version ", 1);
 		$this->db->join('pendanaan', 'pendanaan.project_id = project.id', 'left');
