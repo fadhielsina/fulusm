@@ -9,6 +9,7 @@ class Welcome extends CI_Controller
 		parent::__construct();
 		// Cek Pendanaan
 		$this->cek_pendanaan();
+		$this->load->helper('security');
 	}
 
 	function test_api()

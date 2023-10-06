@@ -8,6 +8,7 @@ class Auth extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->library('email');
+		$this->load->helper('security');
 	}
 
 
@@ -38,6 +39,9 @@ class Auth extends CI_Controller
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 
+		$this->security->xss_clean($email);
+		$this->security->xss_clean($password);
+
 		$user = $this->db->get_where('user', ['email' => $email])->row_array();
 		if ($user) {
 			if ($user['is_active'] == 1) {
@@ -57,6 +61,7 @@ class Auth extends CI_Controller
 							'name' => $user['name'],
 							'role_id' => $user['role_id']
 						];
+
 						$this->session->set_userdata($data);
 
 						if ($user['role_id'] == 6) {
@@ -160,6 +165,9 @@ class Auth extends CI_Controller
 				'date_created' => time()
 
 			];
+
+			$this->security->xss_clean($data);
+			$this->security->xss_clean($user_token);
 
 			if ($this->db->insert('user', $data));
 			$this->db->insert('user_token', $user_token);
