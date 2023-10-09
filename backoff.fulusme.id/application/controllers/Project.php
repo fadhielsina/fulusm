@@ -774,5 +774,3 @@ class Project extends CI_Controller
 		return $hari_ini;
 	}
 }
-
-?>
