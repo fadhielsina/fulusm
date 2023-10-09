@@ -181,7 +181,7 @@ class Project extends CI_Controller
 	  </div></small>');
 		redirect('data_peminjam/form_project/' . $id . '');
 	}
-	
+
 	function _sendEmailApprove($id)
 	{
 		$query = $this->db_fulus->select('*')->from('project')->where(['id' => $id, 'version' => 1])->get()->row();
@@ -271,14 +271,14 @@ class Project extends CI_Controller
 
 		// Tampilkan pesan sukses atau error
 		if ($this->email->send()) {
-// 			echo 'Sukses! email berhasil dikirim.';
-            return true;
+			// 			echo 'Sukses! email berhasil dikirim.';
+			return true;
 		} else {
 			echo $this->email->print_debugger();
 			die;
 		}
 	}
-	
+
 	function testEmail()
 	{
 		$config = $this->config->item('config_email');
@@ -463,7 +463,7 @@ class Project extends CI_Controller
 		$tahun = date('Y');
 		$bulan = $this->customlib->get_month_name(date('m'));
 		$tanggal = "$hari_ini, $tgl $bulan $tahun";
-		
+
 		$template = FCPATH . 'assets/perjanjian_penerbit.docx';
 		$data['GeneratedFileName'] = "perjanjian_penerbit$id_peminjam.docx";
 		$data['folderGenerated'] = "assets/pdf"; // nama folder untuk menyimpan hasil generate dokumen

@@ -478,7 +478,7 @@ class Data_model extends CI_Model
 		$pem_pendana = $this->input->post('pem_pendana');
 		$pem_peminjam = $this->input->post('pem_peminjam');
 
-		// $this->cekVersion($id_project);
+		$this->cekVersion($id_project);
 
 		if ($tipe == 1) {
 			$tipe_bayar = 'Equitas';
@@ -510,7 +510,8 @@ class Data_model extends CI_Model
 		];
 		$this->db->insert('trx_project', $data_jurnal);
 
-		$this->upload_img($id_project);
+		$this->upload_foto_project($id_project);
+		// $this->upload_img($id_project);
 		$this->upload_file($id_project);
 		$this->send_token($id_project);
 	}
@@ -544,6 +545,57 @@ class Data_model extends CI_Model
 			];
 			$this->db_fulus->insert('project', $data);
 		}
+	}
+
+	function upload_foto_project($id_project)
+	{
+		$data = array();
+
+		// Count total files
+		$countfiles = count($_FILES['files']['name']);
+
+		// Looping all files
+		for ($i = 0; $i < $countfiles; $i++) {
+
+			if (!empty($_FILES['files']['name'][$i])) {
+
+				// Define new $_FILES array - $_FILES['file']
+				$_FILES['file']['name'] = $_FILES['files']['name'][$i];
+				$_FILES['file']['type'] = $_FILES['files']['type'][$i];
+				$_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+				$_FILES['file']['error'] = $_FILES['files']['error'][$i];
+				$_FILES['file']['size'] = $_FILES['files']['size'][$i];
+
+				// Set preference
+				$config['upload_path']          = '../assets/img/profile/';
+				$config['allowed_types']        = 'pdf|gif|jpg|png';
+				$config['file_name']            = 'foto_project_' . time() . '';
+
+				//Load upload library
+				$this->load->library('upload', $config);
+
+				// File upload
+				if ($this->upload->do_upload('file')) {
+					// Get data about the file
+					$uploadData = $this->upload->data();
+					$filename = $uploadData['file_name'];
+
+					// Initialize array
+					$data[] = $filename;
+				}
+			}
+		}
+		$arr = serialize($data);
+		$data_img = [
+			'image' => $arr
+		];
+		$this->db_fulus->set($data_img);
+		$this->db_fulus->where('id', $id_project);
+		$this->db_fulus->update('project');
+
+		$this->db->set($data_img);
+		$this->db->where('id', $id_project);
+		$this->db->update('history_project');
 	}
 
 	function upload_img($id_project)

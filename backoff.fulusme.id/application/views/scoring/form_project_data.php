@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label for="input-file-now">Upload Foto Project</label>
-                            <input type="file" id="image_project" name="image_project" class="dropify" data-max-file-size="2M" />
+                            <input type="file" id="image_project" name="files[]" multiple class="dropify" data-max-file-size="2M" />
                             <!-- <small class="text-danger"> <?= form_error('image_project'); ?> </small> -->
                         </div>
                     </div>
@@ -122,3 +122,11 @@
 
     </div>
 </div>
+
+<script>
+    $("#image_project").on("change", function() {
+        if ($("#image_project")[0].files.length > 4) {
+            alert("Yang tersimpan maksimal hanya 4 file");
+        }
+    });
+</script>
