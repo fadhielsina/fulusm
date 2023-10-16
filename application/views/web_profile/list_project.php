@@ -31,11 +31,34 @@ function ribuan($angka)
                 ?>
 
                 <?php if ($query_pendanaan->jumlah_pendanaan >= 1 || $obj["totalhari"] - $obj["sisawaktu"] > 0) : ?>
+                    <?php $foto_project = unserialize($obj['image']); ?>
 
                     <div class="col-md-6 col-lg-3 mt-5 mb-4 mb-lg-0 border-right" style="font-size:13px;">
-                        <img <?php if ($obj["image"]) { ?> src="<?php echo base_url('assets/') . "img/profile/" . $obj["image"] ?> " style="border-bottom:4px #ff6f05 solid;border-top:4px #ff6f05 solid;margin-bottom:15px;width: 90%;height: 250px;border-radius:0 0 10% 10%; margin-left: auto;
-  margin-right: auto;" <?php } else { ?> src="<?php echo base_url('assets/') ?>img/noimage.png" <?php } ?> style="border-bottom:4px #ff6f05 solid;margin-bottom:15px;width:70%;border-radius:0 0 20% 20%; margin-left: auto;
-  margin-right: auto;">
+                        <div id="carouselExampleControls<?= $obj['id'] ?>" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="<?= ($foto_project[0]) ? base_url('assets/img/profile/') . $foto_project[0] : base_url('assets/img/noimage.png'); ?>" alt="Foto slide">
+                                </div>
+                                <?php $i = 1;
+                                while ($i < count($foto_project)) {
+                                ?>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="<?= ($foto_project[$i]) ? base_url('assets/img/profile/') . $foto_project[$i] : base_url('assets/img/noimage.png'); ?>" alt="Foto slide">
+                                    </div>
+                                <?php $i++;
+                                } ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls<?= $obj['id'] ?>" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls<?= $obj['id'] ?>" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+
                         <a href="#" class="kt-widget__title" style=" color: #040538; font-size: 15px;display: inline-block;
     padding: 0px;height: 50px;margin-bottom: 24% !important;margin-top: 16px;"><?php echo $obj["nama_project"] ?></a>
 
