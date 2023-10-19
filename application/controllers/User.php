@@ -1967,7 +1967,7 @@ class User extends CI_Controller
 			$output['data'][] = array(
 				$nomor_urut,
 				$desa['nama_project'],
-				$desa['image'],
+				unserialize($desa['image']),
 				$desa['nominal'],
 				$desa['modal_project'],
 				$desa['deskripsi_project'],
