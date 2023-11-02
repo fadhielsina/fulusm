@@ -626,4 +626,11 @@ class Welcome extends CI_Controller
 		$this->load->view('web_profile/footer_web_profile.php');
 		// $this->load->view('templates/footer');
 	}
+
+	public function aboutus()
+	{
+		$this->load->view('web_profile/header_web_profile.php');
+		$this->load->view('web_profile/aboutus');
+		$this->load->view('web_profile/footer_web_profile.php');
+	}
 }
