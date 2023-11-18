@@ -284,7 +284,7 @@ function ribuan($angka)
                         " src="https://www.fulusme.id/assets/img/lunas.jpeg">
               </a>
             <?php } ?>
-            <p style=" color: black;"> Efek Bersifat Utang </p>
+            <p style=" color: black;"> <?= ($obj['type'] == 0) ? 'Efek Bersifat Ekuitas' : 'Efek Bersifat Utang'; ?> </p>
             <p>ID Proyek : <span style=" color: #fd7e14;"><?php echo $obj["id"] ?></span></p>
             <?php if ($obj["code_saham_alias"]) {
 
