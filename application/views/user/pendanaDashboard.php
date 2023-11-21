@@ -73,6 +73,7 @@ endif;
       $input_form = ''; ?>
       <?php foreach ($project as $proj) : ?>
         <?php $hargaperlot =  (int) $proj['harga_perlot'];
+        $foto_project = unserialize($proj['image']);
         $query_waktu = $this->db->select("(datediff(FROM_UNIXTIME(`project`.end_ts, '%Y-%m-%d'), 
         FROM_UNIXTIME(`project`.scoring_ts, '%Y-%m-%d'))-datediff(FROM_UNIXTIME(`project`.end_ts, '%Y-%m-%d'), current_date())) as sisawaktu, 
         datediff(FROM_UNIXTIME(`project`.end_ts, '%Y-%m-%d'), FROM_UNIXTIME(`project`.scoring_ts, '%Y-%m-%d')) as totalhari")
@@ -91,7 +92,7 @@ endif;
         <div class="col-4 mb-2">
           <div class="card w-200">
             <h5 class="card-title text-center" style="height: 72px; padding-top: 8px;"><b><?= $proj['nama_project'] ?></b></h5>
-            <img class="card-img-top" src="<?= base_url('assets/img/profile/' . $proj['image'] . ''); ?>" alt="Project" style="height:250px">
+            <img class="card-img-top" src="<?= ($foto_project[0]) ? base_url('assets/img/profile/') . $foto_project[0] : base_url('assets/img/noimage.png'); ?>" alt="Project" style="height:250px">
             <div class="card-body" style="padding-top: 5px;">
               <div class="row">
                 <div class="col">
