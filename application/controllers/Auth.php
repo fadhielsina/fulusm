@@ -140,7 +140,8 @@ class Auth extends CI_Controller
 				'phone' => $this->input->post('phone'),
 				'is_active' => 0,
 				'is_umkm' => $is_umkm,
-				'date_created' => time()
+				'date_created' => time(),
+				'login_status' => 0
 			];
 
 
