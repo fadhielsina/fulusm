@@ -577,7 +577,7 @@ class User extends CI_Controller
 				if ($upload_image) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '5048';
 					$config['file_name']     = 'ktp' . time();
 					$new_image = '';
 					$this->load->library('upload', $config);
@@ -599,7 +599,7 @@ class User extends CI_Controller
 				if ($upload_image2) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '5048';
 					$config['file_name']     = 'npwp' . time();
 					$new_image2 = '';
 					$this->load->library('upload', $config);
@@ -619,7 +619,7 @@ class User extends CI_Controller
 				if ($upload_image3) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '5048';
 					$config['file_name']     = 'akta' . time();
 					$new_image3 = '';
 					$this->load->library('upload', $config);
@@ -640,7 +640,7 @@ class User extends CI_Controller
 				if ($upload_image4) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '5048';
 					$config['file_name']     = 'siup' . time();
 					$new_image4 = '';
 					$this->load->library('upload', $config);
@@ -660,7 +660,7 @@ class User extends CI_Controller
 				if ($upload_image5) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '5048';
 					$config['file_name']     = 'tdp' . time();
 					$new_image5 = '';
 					$this->load->library('upload', $config);
@@ -910,7 +910,7 @@ class User extends CI_Controller
 			if ($upload_image) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '5048';
 				$config['file_name']     = 'ktp' . time();
 				$new_image = '';
 				$this->load->library('upload', $config);
@@ -931,7 +931,7 @@ class User extends CI_Controller
 			if ($upload_image1) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '5048';
 				$config['file_name']     = 'slipgaji' . time();
 				$new_image1 = '';
 				$this->load->library('upload', $config);
@@ -1115,7 +1115,7 @@ class User extends CI_Controller
 			if ($upload_image) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '5048';
 				$new_image = '';
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
@@ -1134,7 +1134,7 @@ class User extends CI_Controller
 			if ($upload_surat_kuasa) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '5048';
 				$new_image1 = '';
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
@@ -1153,7 +1153,7 @@ class User extends CI_Controller
 			if ($upload_akte_perusahaan) {
 				$config['upload_path']   = 'assets/img/profile/';
 				$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-				$config['max_size']      = '2048';
+				$config['max_size']      = '5048';
 				$new_image2 = '';
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
@@ -1280,7 +1280,7 @@ class User extends CI_Controller
 				if ($upload_image) {
 					$config['upload_path']   = 'assets/img/profile/';
 					$config['allowed_types'] = 'pdf|jpg|jpeg|png';
-					$config['max_size']      = '2048';
+					$config['max_size']      = '5048';
 					$new_image = '';
 					$this->load->library('upload', $config);
 					$this->upload->initialize($config);

@@ -575,7 +575,7 @@ margin-top: -50px;" class="jumbotron jumbotron-fluid">
     // Allowing file type 
     var allowedExtensions =
       /(\.jpg|\.jpeg|\.png|\.pdf)$/i;
-    if (filea > 2000000) {
+    if (filea > 10000000) {
       alert('ukuran file tidak sesuai');
       fileInput.value = '';
       filea = '';

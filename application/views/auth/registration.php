@@ -154,7 +154,7 @@
                 </ol>
               </div>
 
-              <div style="    margin-top: 20px;" class="form-group form-check">
+              <div style="margin-top: 20px;" class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="setuju" name="setuju">
                 <label style="font-size: 12px;" class="form-check-label" for="setuju">saya telah membaca dan menyetujui syarat dan ketentuan di atas </label>
                 <br>
@@ -187,7 +187,7 @@
 
 <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
 <script>
-  $("#masukbutton").attr('disabled', 'disabled');
+  // $("#masukbutton").attr('disabled', 'disabled');
 
   // if (($('#step2Disclaimer').scrollTop() + $('#step2Disclaimer').innerHeight() > $('#step2Disclaimer')[0].scrollHeight)) {
   //     alert("hi");
@@ -195,16 +195,16 @@
   //   $('input[name="setuju"]').prop('checked', true);
   // }
 
-  $('input[name="setuju"]').attr('disabled', 'disabled');
-  jQuery(function($) {
-    $('#step2Disclaimer').on('scroll', function() {
-      if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-        $("#masukbutton").removeAttr("disabled");
-        $('input[name="setuju"]').removeAttr("disabled");
-        $('input[name="setuju"]').prop('checked', true);
-      }
-    })
-  });
+  // $('input[name="setuju"]').attr('disabled', 'disabled');
+  // jQuery(function($) {
+  //   $('#step2Disclaimer').on('scroll', function() {
+  //     if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+  //       $("#masukbutton").removeAttr("disabled");
+  //       $('input[name="setuju"]').removeAttr("disabled");
+  //       $('input[name="setuju"]').prop('checked', true);
+  //     }
+  //   })
+  // });
 
 
 
@@ -241,7 +241,10 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-35VN14CNFE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'G-35VN14CNFE');
